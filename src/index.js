@@ -122,7 +122,8 @@ const App = () => {
         </table>
 
         <form onSubmit={handleSubmit}>
-            <input type="text" maxLength={5} value={guess} onChange={handleChange} autoFocus={true} />
+            <input type="text" maxLength={5} value={guess} placeholder="Enter guess" onChange={handleChange} autoFocus={true} />
+            <input type="submit" value="Submit" />
         </form>
 
         <p>List of words from: 
