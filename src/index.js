@@ -24,13 +24,18 @@ const App = () => {
 
 
     const getColor = (word, guess, idx) => {
+        let c = guess.charAt(idx);
         /* Correct letter at correct index */
-        if(word.charAt(idx) === guess.charAt(idx)) {
+        if(word.charAt(idx) === c) {
             return 'green';
         }
         /* Correct letter but wrong index */
-        else if(word.indexOf(guess.charAt(idx)) !== -1) {
-            return 'yellow';
+        else if(word.indexOf(c) !== -1) {
+            if(word.indexOf(c) === idx || word.lastIndexOf(c) === idx) {
+                return 'yellow';
+            } else {
+                return 'white';
+            }
         }
         else {
             return 'white';
@@ -47,25 +52,34 @@ const App = () => {
         setGuess(event.target.value.toUpperCase());
     }
 
+    const isValidGuess = (guess) => {
+        guess = guess.trim();
+        return guess.length && allWords.indexOf(guess) !== -1;
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
         if(idx < 6) {
-            if(guess.trim().length && allWords.indexOf(guess.trim()) !== -1) {
+            if(isValidGuess(guess)) {
+                if(guess === word) {
+                    window.alert('Congratulations!');
+                }
+
                 setArr(prev => {
                     let newState = [...prev];
                     newState[idx] = guess;
+                    setIdx(idx => idx + 1);
+                    setGuess('');
                     return newState;
                 });
-                setIdx(idx => idx + 1);
-                setGuess('');
-            }
-            else {
+
+                if(idx === 5) {
+                    window.alert("The word was " + word);
+                }
+            } else {
                 window.alert("Please enter something valid!");
             }
-        }
-        else if (idx >= 6) {
-            window.alert("The word was " + word);
         }
     }
 
