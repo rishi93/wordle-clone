@@ -85,7 +85,7 @@ const App = () => {
 
     return (
         <div>
-        <h1>My Wordle</h1>
+        <h1>Rishi's Wordle</h1>
         <table style={tableStyle}>
             <tbody style={tableStyle}>
             {arr.map((row, rowIdx) => {
