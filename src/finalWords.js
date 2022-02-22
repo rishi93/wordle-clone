@@ -1,4 +1,4 @@
-export default allWords = [
+export const words = [
 'WHICH',
 'THERE',
 'THEIR',

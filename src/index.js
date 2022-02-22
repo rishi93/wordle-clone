@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import allWords from './finalWords';
+import { words } from './finalWords.js';
 
 const App = () => {
+    const [allWords, setAllWords] = React.useState(words);
     const [word, setWord] = React.useState('');
     const [arr, setArr] = React.useState(["", "", "", "", "", ""]);
     const [idx, setIdx] = React.useState(0);
