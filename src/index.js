@@ -140,8 +140,8 @@ const App = () => {
             <input type="submit" value="Submit" />
         </form>
 
-        <p>List of words from: 
-            <a target="_blank" href="https://www-cs-faculty.stanford.edu/~knuth/sgb-words.txt">here</a>
+        <p>Source code: 
+            <a target="_blank" href="https://github.com/rishi93/wordle-clone">here</a>
         </p>
         </div>
     );
